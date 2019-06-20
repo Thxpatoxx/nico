@@ -2,6 +2,15 @@ from django.shortcuts import render, get_object_or_404
 from .models import Diagnostico
 from .forms import DiagnosticoForm
 from django.shortcuts import redirect
+from django.contrib.auth.forms import UserCreationForm
+from django.urls import reverse_lazy
+from django.views import generic
+
+
+class SignUp(generic.CreateView):
+    form_class = UserCreationForm
+    success_url = reverse_lazy('login')
+    template_name = 'signup.html'
 
 def post_list(request):
     Diagnosticos = Diagnostico.objects.order_by('author')

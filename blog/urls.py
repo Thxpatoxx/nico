@@ -7,4 +7,5 @@ urlpatterns = [
     path('Diagnostico/new', views.post_new, name='post_new'),
     path('Diagnostico/<int:pk>/edit/', views.post_edit, name='post_edit'),
     path('accounts/', include('django.contrib.auth.urls')),
+    path('signup/', views.SignUp.as_view(), name='signup'),
 ]
